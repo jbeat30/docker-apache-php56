@@ -11,11 +11,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN rm -rf /var/lib/apt/lists/*
 
 # Configure Apache
-RUN sed -i -e '/<Directory \/var\/www\/html>/,/<\/Directory>/ { \
-    s/AllowOverride None/AllowOverride All/; \
-    s/DirectoryIndex /DirectoryIndex index.php index.html /; \
-}' /etc/apache2/apache2.conf && \
-    a2enmod mpm_prefork rewrite
+RUN echo '<Directory /var/www/html>\n\
+    Options FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>' >> /etc/apache2/apache2.conf && \
+a2enmod mpm_prefork rewrite
+
+
 
 # Configure PHP settings
 RUN echo "date.timezone = Asia/Seoul" > /usr/local/etc/php/php.ini && \
