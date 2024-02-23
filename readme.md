@@ -36,6 +36,8 @@ You can find the pre-built Docker image on Docker Hub at [jbeat/apache-php56](ht
 - Timezone set to Asia/Seoul.
 - Short tags are enabled.
 - Composer is installed for managing PHP dependencies.
+- Options FollowSymLinks and AllowOverride All are set in the Apache configuration.
+- Require all granted Give all users full access to the contents of the directory for development environment.
 
 ## Author
 

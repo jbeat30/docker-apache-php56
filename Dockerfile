@@ -18,8 +18,6 @@ RUN echo '<Directory /var/www/html>\n\
 </Directory>' >> /etc/apache2/apache2.conf && \
 a2enmod mpm_prefork rewrite
 
-
-
 # Configure PHP settings
 RUN echo "date.timezone = Asia/Seoul" > /usr/local/etc/php/php.ini && \
     sed -i 's/short_open_tag = Off/short_open_tag = On/' /usr/local/etc/php/php.ini
