@@ -1,20 +1,19 @@
 # Dockerized PHP 5.6 with Apache
 
 This Dockerfile sets up a PHP 5.6 environment with Apache, suitable for local development.
-You can find the pre-built Docker image on Docker Hub at [jbeat/apache-php56](https://hub.docker.com/repository/docker/jbeat/apache-php56/general).
-
+You can find the pre-built Docker image on Docker Hub at [jbeat/apache-php](https://hub.docker.com/repository/docker/jbeat/apache-php/general).
 ## Usage
 
 1. **Pull the Docker image:**
 
     ```bash
-    docker pull jbeat/apache-php56:latest
+    docker pull jbeat/apache-php:5.6.0
     ```
 
 2. **Run the Docker container:**
 
    ```bash
-    docker run -d --name [container-name] -p 8080:80 -v $(pwd):/var/www/html jbeat/apache-php56:latest
+    docker run -d --name [container-name] -p 8080:80 -v $(pwd):/var/www/html jbeat/apache-php:5.6.0
    ```
 
    Replace `[container-name]` with a desired name for your container and
